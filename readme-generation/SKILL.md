@@ -8,11 +8,12 @@ description: Generate README.md for code repositories
 ```markdown
 # [Project title]
 
-[One-paragraph high-level **functional** view of repo's main tool or app. Do not mention any specific library, technology or brand name]
+[One-paragraph high-level **functional** view of repo's main tool or app. Do not mention any specific library, technology or brand name in this specific section]
 
 ## Requirements
 
-- [Tool with minimum version if applicable]
+- [Tool 1 with minimum version if applicable]
+- [Tool 2]
 
 ## Setup
 
@@ -20,15 +21,22 @@ description: Generate README.md for code repositories
 
 ## Configuration
 
-[Command to run to create a fresh configuration, if any]
-[Minimal prose **only** when there is no self-documenting template]
+[Command to run to create a fresh configuration, in a code block]
+[No prose at all if configuration is self-documenting]
 
 ## Run
 
 [How to start the service or run tools]
-[Minimal prose **only** if some action is necessary after running the command above]
+[Minimal prose **only** if some action is necessary after running the command above. No mention of configuration]
 
 ## Layout
 
-[Directory structure formated like `tree` with a '#' comment on each line for what to find in the directory or file. List all key files and top-level entry points, no matter which depth they're at, omit less important files that can be discovered later]
+Produce a `tree`-style layout with `#` end-of-line comments (aligned where practical).
+
+**Include (expand as needed, not limited to depth 2):** Application entrypoint, configuration, database/migrations, domain or route modules, integrations, main features. Include a summary for each line.
+
+**May summarize instead of expanding:** Generated caches, vendored assets, or many small files of the same kind -- use one tree line plus a comment (e.g. `├── static/js/plant_form/   # modular form scripts`).
+
+**Goal:** Trade length for signal—enough depth and naming that a **contributor** or **agent** can jump to the correct file without pasting the entire repository.
+
 ```
