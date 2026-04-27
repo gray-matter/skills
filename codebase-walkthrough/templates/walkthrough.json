@@ -1,0 +1,54 @@
+{
+  "schema_version": "1.0.0",
+  "generated_at": "{{iso_8601_timestamp}}",
+  "source_revision": "{{git_revision_or_unknown}}",
+  "target_path": "docs/walkthrough",
+  "project": {
+    "name": "{{project_name}}",
+    "summary": "{{project_summary}}"
+  },
+  "apps": [
+    {
+      "id": "{{app_id}}",
+      "name": "{{app_name}}",
+      "kind": "{{app_kind}}",
+      "entrypoints": [
+        "{{entrypoint_path}}"
+      ],
+      "run_commands": [
+        {
+          "command": "{{run_command}}",
+          "evidence": "{{run_evidence_path}}",
+          "inferred": false
+        }
+      ],
+      "test_commands": [
+        {
+          "command": "{{test_command}}",
+          "evidence": "{{test_evidence_path}}",
+          "inferred": false
+        }
+      ]
+    }
+  ],
+  "features": [
+    {
+      "id": "{{feature_id}}",
+      "label": "{{feature_label}}",
+      "description": "{{feature_description}}",
+      "status": "candidate",
+      "confidence": "medium",
+      "doc": "docs/walkthrough/features/{{feature_id}}.md",
+      "evidence": [
+        {
+          "path": "{{source_path}}",
+          "line": 1,
+          "reason": "{{source_reason}}"
+        }
+      ]
+    }
+  ],
+  "notes": [
+    "{{note}}"
+  ]
+}
