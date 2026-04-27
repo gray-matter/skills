@@ -64,9 +64,9 @@ Put Run steps inside **Commands** only when one applies:
 
 [Add only when the repo has ≥3 project-specific terms that don't map to obvious file names. One line each. Otherwise omit the section.]
 
-## Deeper docs
+## Nested AGENTS.md
 
-- [List only files that exist — `docs/*.md`, nested `AGENTS.md` for subpackages or areas, etc.]
+- [List only files that exist — nested `AGENTS.md` for subpackages or areas, etc.]
 
 [Omit the section if no such files exist.]
 ```
