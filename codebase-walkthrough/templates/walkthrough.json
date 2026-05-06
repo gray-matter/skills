@@ -37,7 +37,6 @@
       "label": "{{feature_label}}",
       "description": "{{feature_description}}",
       "status": "candidate",
-      "confidence": "medium",
       "doc": "docs/walkthrough/features/{{feature_id}}.md",
       "evidence": [
         {

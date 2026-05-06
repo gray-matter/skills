@@ -1,8 +1,5 @@
 # {{feature_label}}
 
-Status: {{feature_status}}  
-Confidence: {{feature_confidence}}
-
 ## User Workflow
 
 {{user_workflow_summary}}
@@ -33,6 +30,6 @@ Confidence: {{feature_confidence}}
 2. `{{second_source_path}}`
 3. `{{third_source_path}}`
 
-## Unknowns And Low-Confidence Areas
+## Unknowns And Uncertain Areas
 
-- {{unknown_or_low_confidence_area}}
+- {{unknown_or_uncertain_area}}
