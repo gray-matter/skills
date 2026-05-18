@@ -21,5 +21,5 @@ Primary run workflow: same as README **Run**.
 ## Gotchas
 
 - `scripts/serve_viewer.py` exits before serving unless the target repo has the configured walkthrough directory and `walkthrough.json`.
-- `viewer/index.html` loads Docsify from jsDelivr; browser smoke tests need network access or a cached CDN response.
+- `viewer/index.html` loads Docsify from jsDelivr, and source pages load Prism from jsDelivr; browser smoke tests need network access or a cached CDN response.
 - Source references must remain repo-relative `path:line` text or trailing-slash directory paths; do not bake source-viewer URLs into generated Markdown.

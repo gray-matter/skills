@@ -52,20 +52,12 @@ body {
   text-transform: uppercase;
 }
 
-.source-link-heading {
-  border-top: 1px solid var(--walkthrough-border);
-  padding-top: 12px;
-}
-
 .walkthrough-panel p {
   margin: 6px 0;
 }
 
 .walkthrough-panel a,
-.prompt-button,
-.source-link-form button,
-.source-link-form select,
-.source-link-form input {
+.prompt-button {
   border-radius: var(--walkthrough-control-radius);
 }
 
@@ -89,9 +81,7 @@ body {
 .empty,
 .prompt-note,
 .prompt-status,
-.meta-line,
-.source-link-form label,
-.source-link-status {
+.meta-line {
   color: var(--walkthrough-muted);
   font-size: 0.88rem;
 }
@@ -114,33 +104,6 @@ body {
   overflow-wrap: anywhere;
 }
 
-.source-link-form {
-  display: grid;
-  gap: 8px;
-  border-bottom: 1px solid var(--walkthrough-border);
-  margin: 0 0 4px;
-  padding: 0 0 12px;
-}
-
-.source-link-form label {
-  display: grid;
-  gap: 4px;
-}
-
-.source-link-form input,
-.source-link-form select {
-  box-sizing: border-box;
-  width: 100%;
-  min-height: 34px;
-  border: 1px solid var(--walkthrough-border);
-  background: var(--walkthrough-surface);
-  color: var(--walkthrough-text);
-  font: inherit;
-  font-size: 0.9rem;
-  padding: 6px 8px;
-}
-
-.source-link-form button,
 .prompt-button {
   min-height: 36px;
   border: 1px solid var(--walkthrough-primary-border);
@@ -151,14 +114,11 @@ body {
   font-weight: 700;
 }
 
-.source-link-form button:hover,
-.source-link-form button:focus-visible,
 .prompt-button:hover,
 .prompt-button:focus-visible {
   border-color: var(--walkthrough-primary);
 }
 
-.source-link-status,
 .prompt-status {
   min-height: 1.3em;
 }

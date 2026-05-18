@@ -81,7 +81,7 @@ See `app/main.py:41`.
 The models live under `app/models/`.
 ```
 
-The reusable viewer resolves these references at browse time. Viewer source-link settings are presentation state and are not written into generated Markdown or `walkthrough.json`.
+The reusable viewer resolves these references at browse time. File references open the local inline source viewer at `/browse/<path>?line=<line>`, and directory references open local directory browsing at `/browse/<path>/`. Viewer URL decisions are not written into generated Markdown or `walkthrough.json`.
 
 ## Skill-Hosted Viewer
 
@@ -91,4 +91,4 @@ The viewer assets live in the `codebase-walkthrough` skill directory, not in gen
 python /path/to/codebase-walkthrough/scripts/serve_viewer.py /path/to/repo
 ```
 
-The server uses Python stdlib, serves this skill's `viewer/` assets, exposes the target repo's generated `docs/walkthrough/` files under `/walkthrough/`, exposes local repo browsing under `/browse/` for directory references, and exposes inferred local context under `/api/context`.
+The server uses Python stdlib, serves this skill's `viewer/` assets, exposes the target repo's generated `docs/walkthrough/` files under `/walkthrough/`, exposes local repo browsing and highlighted source files under `/browse/`, and exposes inferred local context under `/api/context`.
