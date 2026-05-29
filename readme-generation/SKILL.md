@@ -41,7 +41,7 @@ Produce a `tree`-style diagram with `#` end-of-line comments (aligned where prac
 
 **Every listed path must have a comment:** each tree line that names a file or directory ends with `# …` (short role or contents). Do not list bare paths with no `#` line — that reads as “empty” and wastes a jump target without signal. If several siblings would repeat the same kind of role, **May summarize instead of expanding** (one directory line + comment, or one representative file + “and N similar …” in the comment) rather than many uncommented filenames.
 
-**Omit from the tree** (unless they are the primary subject of the repo): files that only wire local developer tooling — editor hints, language-server configs, test-runner option files, formatter/linter configs, CI-only YAML. Contributors discover these via docs or their IDE; listing them adds noise.
+**Omit from the tree** (unless they are the primary subject of the repo): files that only wire local developer tooling — editor hints, language-server configs, test-runner option files, formatter/linter configs, CI-only files, .gitignore and non-versioned files. Contributors discover these via docs or their IDE; listing them adds noise.
 
 **May summarize instead of expanding:** generated caches, vendored assets, or many small files of the same kind — one tree line plus a summary comment.
 
