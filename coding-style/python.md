@@ -1,16 +1,11 @@
----
-name: python-style
-description: Apply these conventions whenever creating, editing, or reviewing Python code or projects — covers environment/tooling, imports, error handling, and typing.
----
+# Python
 
-# python-style
-
-Baseline conventions for Python work. Apply regardless of project, unless the project's own AGENTS.md/README explicitly overrides one of these.
+Baseline conventions for Python work.
 
 ## Environment & tooling
 
 - Never use the global/system Python interpreter. Every project gets its own virtual environment.
-- Use `uv` to manage the environment, dependencies, and running code (`uv venv`, `uv add`, `uv run`, `uv sync`). Don't reach for ohter tools (e.g. `pip`) unless the project already standardized on one of them.
+- Use `uv` to manage the environment, dependencies, and running code (`uv venv`, `uv add`, `uv run`, `uv sync`). Don't reach for other tools (e.g. `pip`) unless the project already standardized on one of them.
 - Project metadata and dependencies live in `pyproject.toml` per PEP 518 / PEP 621 — not `requirements.txt`, `setup.py`, or `setup.cfg`.
 
 ## Imports
