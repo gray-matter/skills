@@ -12,3 +12,4 @@ Whenever creating or updating a UI, read the relevant sections from these docume
 - **Forms & inputs**: [inputs.md](inputs.md)
 - **Visual & structural consistency**: [visuals.md](visuals.md)
 - **Accessibility**: [accessibility.md](accessibility.md)
+- **PWA install (manifest, icons, service worker)**: [pwa.md](pwa.md)
