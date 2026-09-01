@@ -13,6 +13,12 @@ Baseline conventions for Python work.
 - All imports go at the top of the file, per PEP 8's Imports section — no inline/deferred imports inside functions "to be safe" or for lazy loading, unless there's a proven circular-import or startup-cost reason.
 - Don't guard imports with `try/except ImportError` for libraries the project depends on. If a required library is missing, let the `ImportError` surface — that's a setup bug, not a runtime case to handle gracefully.
 
+## Web framework
+
+- Default to FastAPI + uvicorn for new web apps.
+- Exception: keep Flask where a project is coupled to a sync-only SDK or to Flask's server-side session (`flask-session`) for OAuth token storage.
+- Don't migrate an existing app between frameworks for consistency alone; only when the exception above no longer applies.
+
 ## Typing
 
 - Type-annotate function signatures and non-obvious variables, per PEP 484 (type hints) and PEP 526 (variable annotation syntax).
