@@ -1,6 +1,6 @@
 ---
 name: ux-principles
-description: Apply these UX standards when editing HTML templates, CSS, or client-side UI behavior
+description: Apply these UX standards when editing HTML templates, CSS, client-side UI behavior, or PWA
 ---
 
 # ux-principles

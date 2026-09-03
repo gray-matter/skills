@@ -35,6 +35,7 @@
 - On `activate`, delete every cache whose name isn't the current one, then `clients.claim()`.
 - In the `fetch` handler, resolve the response from *this worker's own* cache object (open by name), not a bare `caches.match()` that searches every cache. While a new worker sits in `waiting`, its cache is already full of the next build; a cross-cache match would leak next-build assets into a page still running the current build.
 - Give the offline fallback (`catch` on `fetch`) a real target, e.g. `cache.match('/')`, so a dropped connection degrades to the shell instead of a rejected promise.
+- With Workbox's `precacheAndRoute` (e.g. `injectManifest`), precached entries match by **exact literal URL** — `index.html` doesn't match a navigation request to `/`. Add a separate `NavigationRoute(createHandlerBoundToURL('index.html'))` or offline navigations fall through to the network and fail.
 
 ## Update detection & version rollout
 
