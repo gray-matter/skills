@@ -36,6 +36,7 @@
 - In the `fetch` handler, resolve the response from *this worker's own* cache object (open by name), not a bare `caches.match()` that searches every cache. While a new worker sits in `waiting`, its cache is already full of the next build; a cross-cache match would leak next-build assets into a page still running the current build.
 - Give the offline fallback (`catch` on `fetch`) a real target, e.g. `cache.match('/')`, so a dropped connection degrades to the shell instead of a rejected promise.
 - With Workbox's `precacheAndRoute` (e.g. `injectManifest`), precached entries match by **exact literal URL** — `index.html` doesn't match a navigation request to `/`. Add a separate `NavigationRoute(createHandlerBoundToURL('index.html'))` or offline navigations fall through to the network and fail.
+- Matching a lazily-cached asset by `pathname.endsWith('name.ext')`? Build tools hash filenames as `name-<hash>.ext` — the hash lands before the extension, so the suffix never matches and the file is never cached. Match with `/name.*\.ext$/` instead.
 
 ## Update detection & version rollout
 
@@ -46,6 +47,17 @@
 - The version-check network call should have **no offline fallback**. If it fails, let it fail — treat that as "nothing to compare against" and stay quiet. A synthetic fallback value reads as a version different from whatever is cached and pops an update prompt with no connection available to satisfy it.
 - Re-run the update check on `visibilitychange` (when the tab/app returns to the foreground), throttled to a minimum interval. A PWA can be left open for days without a fresh page load, so a check that only runs on load will never see later deploys.
 - Handle both "a new worker is waiting" and "the cache needs a refill with no new worker" (e.g. static assets changed but `sw.js` didn't) as distinct update paths: the first hands off via `skipWaiting` + `controllerchange` + reload; the second messages the active worker to refill its own cache in place, then reloads — a plain reload without refilling just re-serves the stale entries.
+
+## Update UI: reusable refresh-button pattern
+
+A small, framework-agnostic pattern for surfacing "a new version is available" and letting the user apply it on their own terms, instead of yanking them onto new code mid-session.
+
+- **One button, hidden by default.** Both update-detection signals (waiting worker, or `version.json` vs. cached-stamp mismatch) converge on the same "un-hide the button" call — the button itself doesn't need to remember *which* signal fired.
+- **On click, disable the button; don't re-hide it.** A slow or offline update should read as "stuck," not silently revert to looking like nothing happened.
+- **On click, re-read the service worker registration's live state — don't act on whatever triggered the button.** Time passes between "button shown" and "user clicks it," and the registration can move on in that window (installing → waiting → activated, or vice versa if another tab already updated it). Branching on a stashed "why we showed the button" flag acts on stale information; re-checking `getRegistration()` at click time is correct no matter what happened in between. This is the single biggest source of flaky "update did nothing" reports.
+- **Handle all four states the registration can be in at click time, not just the happy path:** no registration at all (clear every cache and reload — starting clean is always safe here); a worker still installing (wait for it to finish rather than misreading "not waiting yet" as "nothing changed"); a worker waiting (tell it to activate, then reload); and — the case that's easiest to skip — an active worker with *no* waiting worker, meaning `sw.js` itself didn't change but the assets it caches did. That last case has no worker to hand control to, so it needs its own path: message the current worker to refill its own cache in place, then reload. A plain reload without that step just re-serves the same stale entries back out of the cache that's already there.
+- **Never wait on a single event with no way out.** The handoff to a new worker is normally signaled by a `controllerchange` event, but that event can be missed (e.g. the tab was backgrounded when it fired) and there's no browser-level retry. Race it against a short timer instead of only listening for it — the first one to fire reloads the page, the loser is a no-op. Same idea for the "refill the cache in place" request: don't fire-and-forget it, get an acknowledgement back (a `MessageChannel` reply works well) with its own timeout, and re-enable the button on timeout/failure instead of leaving it disabled forever or reloading into content you never confirmed was actually refreshed.
+- **The two operations — "activate a different, already-installed worker" vs. "refill this worker's own cache" — are different messages to the worker, not one generic "update" message.** They do genuinely different things and the client already knows which one applies from the state it just checked; collapsing them into one message just pushes that branch into the worker where it's harder to reason about.
 
 ## Local dev
 
