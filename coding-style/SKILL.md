@@ -14,6 +14,10 @@ Baseline conventions for code, regardless of project — unless the project's ow
 - If you're tempted to comment what a line does, rename things or restructure until the code says it, instead.
 - An outdated comment is worse than no comment — don't add one you won't keep current.
 
+## General practices
+
+- Use tools already established by the project. Add a new tool only when it meets a concrete need the current setup doesn’t cover.
+
 ## References
 
 Citations only — the bullets above are the rules to apply. Don't fetch these unless the user explicitly asks for more detail.
@@ -24,3 +28,4 @@ Citations only — the bullets above are the rules to apply. Don't fetch these u
 ## Languages
 
 - **Python**: [python.md](python.md)
+- **JavaScript**: [javascript.md](javascript.md)
