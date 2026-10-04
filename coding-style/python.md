@@ -21,9 +21,9 @@ Baseline conventions for Python work.
 
 ## Typing
 
-- Type-annotate function signatures and non-obvious variables, per PEP 484 (type hints) and PEP 526 (variable annotation syntax).
+- If the project has no established type checker or Pyright configuration, use Pyright with `typeCheckingMode = "standard"` as the baseline. Keep the existing checker and configuration, and include type checking in the development loop.
+- Add type annotations broadly: annotate function signatures and non-obvious variables, per PEP 484 (type hints) and PEP 526 (variable annotation syntax). Treat annotations as checked contracts, not decoration.
 - Prefer built-in generics (`list[str]`, `dict[str, int]`) over `typing.List`/`typing.Dict` (PEP 585, Python ≥3.9).
-- Treat annotations as checked, not decorative: run a type checker (`mypy` or `pyright`) as part of the dev loop.
 
 ## References
 

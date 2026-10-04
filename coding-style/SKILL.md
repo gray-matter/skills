@@ -17,6 +17,7 @@ Baseline conventions for code, regardless of project — unless the project's ow
 ## General practices
 
 - Use tools already established by the project. Add a new tool only when it meets a concrete need the current setup doesn’t cover.
+- Use the language's type system as fully as practical: make important data shapes and interfaces explicit, and check types with the project's established type checker where available. Avoid redundant annotations that add noise without clarifying a contract.
 
 ## References
 
