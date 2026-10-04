@@ -12,8 +12,9 @@
 
 ## **Cache-safe static URLs**
 
-- **Fingerprint static assets** so browsers always pick up changes after deploy: append a version query parameter derived from the file’s identity on disk (e.g. last-modified time) or from a **content hash** at build time.
-- Hashes are stricter (two files with the same mtime can still confuse caches); mtimes are simpler for small server-rendered apps.
+- **Fingerprint static asset URLs** (prefer a content hash) when deploys should let browsers cache each version for a long time; a changed file then gets a new URL.
+- Use **ETags or other revalidation** when an asset keeps the same URL and clients should check whether it changed. ETags validate a cached response; they do not give a changed asset a new identity, so they are not a replacement for fingerprinted URLs when using long-lived caching.
+- Choose the URL versioning and HTTP cache headers together for the app’s deployment setup. A generated version query parameter can work for small server-rendered apps, but should change reliably whenever the file changes.
 
 ## **Progressive enhancement & hybrid delivery**
 

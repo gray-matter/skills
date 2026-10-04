@@ -1,5 +1,9 @@
 # Interaction & feedback
 
+## **Localized user-facing text**
+
+- When an app supports multiple locales or is expected to be localized, route all user-facing text, including validation and error messages, through its localization system. Do not hard-code English-only errors into an otherwise localized interface.
+
 ## **In-app overlays, not native dialogs**
 
 - Avoid `alert`, `confirm`, and `prompt`. Use **modal overlays** (backdrop + focused panel) for forms, confirmations, and errors so tone, branding, and accessibility stay under your control.

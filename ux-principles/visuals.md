@@ -12,6 +12,10 @@
 
 - Reserve **minimum height** for dynamic slots (test results, modals loading body) to reduce layout shift when content appears.
 
+## **Responsive layouts**
+
+- Make layouts reflow and keep text and controls usable with touch input at narrow widths and enlarged zoom. Avoid requiring horizontal scrolling for ordinary content or actions; let dense or specialized content use an interaction suited to that content.
+
 ## **Prefer unambiguous primitives**
 
 - When a visual effect has more than one way to build it, prefer the CSS primitive whose behavior is precisely specified over one that depends on engine-specific assumptions.
