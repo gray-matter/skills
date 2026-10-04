@@ -1,9 +1,9 @@
 ---
-name: agents-generation
+name: agents-md-generation
 description: Generate AGENTS.md for code repositories
 ---
 
-# agents-generation
+# agents-md-generation
 
 Paired with `readme-generation`. README covers setup, configuration, run, and layout for humans; AGENTS.md covers the dev loop, conventions, and gotchas for agents. Link across — never duplicate.
 

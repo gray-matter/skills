@@ -1,9 +1,9 @@
 ---
-name: refactoring
+name: refactor-planning
 description: Use whenever the user asks to refactor, clean up, simplify, modernize, reduce complexity, remove dead code, or plan a restructuring of existing code — even if they just describe messy or confusing code, ask "what should we do about this file/module," or want a second opinion on whether something is still needed, without using the word "refactor." Produces a reviewed, coding-agent-ready task list; stops short of changing code unless asked to proceed.
 ---
 
-# refactoring
+# refactor-planning
 
 ## Principles
 

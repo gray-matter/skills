@@ -5,7 +5,7 @@ description: Generate README.md for code repositories
 
 # readme-generation
 
-Paired with `agents-generation`. README is for humans (contributors and users) and covers setup, configuration, run, and layout. Agent-specific guidance (dev loop, conventions, gotchas) lives in `AGENTS.md` — link, don't duplicate.
+Paired with `agents-md-generation`. README is for humans (contributors and users) and covers setup, configuration, run, and layout. Agent-specific guidance (dev loop, conventions, gotchas) lives in `AGENTS.md` — link, don't duplicate.
 
 **Scope:** Sections below assume a runnable project (service, CLI, app, notebook). For library-only repos, replace **Run** with **Usage** (minimal import + call example) and drop sections that don't apply.
 
